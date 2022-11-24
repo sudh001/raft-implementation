@@ -1,0 +1,7 @@
+> Make func 
+> raft type
+> saveRaftState
+> readRaftState
+> test_case for Make 
+
+

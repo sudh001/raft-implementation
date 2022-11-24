@@ -1,0 +1,21 @@
+timer type:
+	> when init, 
+		specify range of values timeout can take
+		specify the handler func to be called on timeout
+		specify if timer is alive (handler to be called only if timer is alive)
+	
+	> reset(): when called choose a timout value randomly in the specified range and start timer
+	
+	> start(): does the work of reset but in a new go routine
+		 
+	> ontimeout(): execute the handler func and reset the timer using reset() Only
+	
+	> stop(): the timer is considered dead and the go routine will die eventually (reset will not be called)
+NOTE:
+	timer is to be used as a long running go routine, so it must know when to stop 
+	the handler is responsible for knowing when to stop (if server is killed, handler must realise this by calling rf.killed())
+	
+	handler is also responsible for stopping the timer by go 
+	
+	> make sure that timer runs on a go routine seperate from the caller's routine
+	

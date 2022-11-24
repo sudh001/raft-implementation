@@ -1,0 +1,39 @@
+Lab 2A:
+	Funcs needed:
+		> GetState -- Me DONE
+			> am i a leader, what is my term
+		> Make -- Me DONE
+		> startElection -- parimala
+			NOTE: Part of long running go routine.. must check if need to stop
+			NOTE: To stop
+			
+		> sendHeartBeat -- siddarth		
+			NOTE: Part of long running go routine.. must check if need to stop
+			
+			
+		> RequestVote -- parimala
+			NOTE: Need to check if alive and not reply if dead (dont know if this will be called by tester if it killed)
+		
+		> Kill() -- siddarth
+			NOTE: need to stop electionTimer and heartbeatTimer
+			
+		> on_recivng_appendEntry -- siddarth
+	
+	Types needed:
+		> Raft -- Me DONE
+		> RequestVoteArgs -- parimala
+		> RequestVoteReply -- parimala
+		> appendEntryArgs -- siddarth
+		> appendEntryReply -- siddarth
+		> timer -- parimala
+	
+		
+	NOTES:	
+		> please, please, please use the mutex (rf.mu) for updating rf state
+		> parimala needs to declare electionTimer object in Raft type
+		> parimala needs to initialize electionTimer object in Make, call electionTimer.start()
+		> siddarth needs to declare hearbeatTimer object in Raft type
+		> siddarth needs to initialize and start hearbeatTimer in startElection when candidate becomes leader
+		
+		> heartbeat timer 100ms, choos election timoer range st leader is elected within 5s 
+		
